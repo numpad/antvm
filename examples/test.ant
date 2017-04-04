@@ -1,0 +1,32 @@
+
+fn main() {
+	greet()
+}
+
+fn greet() {
+	print("Hello, World!\n")
+}
+
+:xa
+---------------------------
+
+data:
+str:"Hello, World!\n":0x0005
+fn:greet:0x0014 --> 0x001e
+fn:main:0x0016 --> 0x0018
+
+lda 0x0007
+call $print_s
+
+print_s <addr>:
+   start:
+	lds @addr
+	jez _end_
+	putc
+	incr @addr
+	jmp _start_
+   end:
+	ret 0
+
+
+

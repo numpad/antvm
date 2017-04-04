@@ -1,7 +1,7 @@
 CC=gcc -std=c99
 CFLAGS=-c -Wall -pedantic
-LDFLAGS=
-SOURCES=main.c antvm.c
+LDFLAGS=-Ilib/
+SOURCES=lib/stack.c antvm.c main.c
 OBJECTS=$(SOURCES:%.cpp=%.o)
 EXECUTABLE=main
 
